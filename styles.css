@@ -606,16 +606,32 @@ em { font-style: italic; color: var(--amber); }
 }
 .hero-embers { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
 .hero-content { position: relative; z-index: 3; margin-top: .6rem; }
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: -8% -12% -8% -12%;
+  z-index: -1;
+  background: radial-gradient(60% 65% at 50% 42%, rgba(7,5,7,.72) 0%, rgba(7,5,7,.42) 55%, transparent 82%);
+  filter: blur(6px);
+  pointer-events: none;
+}
 .hero-kicker {
   font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; color: var(--amber); font-weight: 600;
 }
 .hero-title {
+  position: relative;
   margin-top: 1rem;
   font-size: clamp(2.6rem, 8vw, 5.6rem);
   letter-spacing: .05em;
   line-height: .98;
+  color: var(--amber);
   background: linear-gradient(120deg, var(--cream) 20%, var(--amber) 55%, var(--orange-fire) 80%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 6px 26px rgba(0,0,0,.85)) drop-shadow(0 2px 6px rgba(0,0,0,.9));
+}
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero-title { color: var(--amber); background: none; }
 }
 .hero-title span { display: block; }
 .hero-sub {
