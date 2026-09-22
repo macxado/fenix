@@ -152,8 +152,13 @@
     if (next) next.addEventListener("click", function () { scrollToSlide(Math.min(slides.length - 1, currentIndex() + 1)); });
 
     slides.forEach(function (s) {
-      var img = $("img", s);
-      if (img) s.addEventListener("click", function () { openLightbox(img.src, img.alt); });
+      var imgs = $$("img", s);
+      imgs.forEach(function (img) {
+        img.addEventListener("click", function (e) {
+          e.stopPropagation();
+          openLightbox(img.src, img.alt);
+        });
+      });
     });
   }
 
