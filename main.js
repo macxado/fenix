@@ -76,6 +76,21 @@
     });
   }
 
+  /* ---------------- Back to top ---------------- */
+  function initBackToTop() {
+    var btn = $("[data-back-to-top]");
+    if (!btn) return;
+    var toggle = function () {
+      if (window.scrollY > window.innerHeight * 0.6) btn.classList.add("is-visible");
+      else btn.classList.remove("is-visible");
+    };
+    toggle();
+    window.addEventListener("scroll", toggle, { passive: true });
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+    });
+  }
+
   /* ---------------- Prefill "Massage souhaité" from card buttons ---------------- */
   function initMassagePrefill() {
     var select = $("#f-massage");
@@ -260,6 +275,7 @@
     safe(initLightbox, "initLightbox");
     safe(initContactForm, "initContactForm");
     safe(initMassagePrefill, "initMassagePrefill");
+    safe(initBackToTop, "initBackToTop");
     document.documentElement.classList.add("is-ready");
   }
 
