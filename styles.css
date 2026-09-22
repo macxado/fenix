@@ -533,6 +533,11 @@ em { font-style: italic; color: var(--amber); }
   outline: none;
 }
 .form-field textarea { resize: vertical; min-height: 110px; }
+#f-massage.is-prefilled {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(196,154,69,.22);
+  transition: border-color .4s var(--ease-out), box-shadow .4s var(--ease-out);
+}
 .form-note { font-size: .78rem; color: var(--text-mute); margin-top: .9rem; }
 .form-success {
   display: none; align-items: center; gap: .6rem;
@@ -614,7 +619,7 @@ em { font-style: italic; color: var(--amber); }
   position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: .05; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
-.hero-embers { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.hero-embers { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 .hero-content { position: relative; z-index: 3; margin-top: .6rem; }
 .hero-content::before {
   content: "";
@@ -717,19 +722,21 @@ em { font-style: italic; color: var(--amber); }
   animation: splashSafety .01s 4.5s forwards;
 }
 .splash.is-out {
-  animation: splashOut .7s var(--ease-in) forwards;
+  animation: splashOut 1.3s cubic-bezier(.45,0,.4,1) forwards;
   pointer-events: none;
 }
 @keyframes splashSafety {
   to { opacity: 0; visibility: hidden; pointer-events: none; }
 }
 @keyframes splashOut {
-  to { opacity: 0; transform: scale(1.05); visibility: hidden; }
+  0%   { opacity: 1; filter: blur(0); }
+  60%  { opacity: .35; filter: blur(4px); }
+  100% { opacity: 0; filter: blur(10px); visibility: hidden; }
 }
 .splash-glow {
   position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(30% 34% at 50% 46%, rgba(232,93,24,.4), transparent 72%);
-  filter: blur(50px);
+  background: radial-gradient(38% 42% at 50% 44%, rgba(232,93,24,.42), transparent 72%);
+  filter: blur(60px);
   animation: splashGlowPulse 2.2s ease-in-out infinite alternate;
 }
 @keyframes splashGlowPulse {
@@ -738,35 +745,39 @@ em { font-style: italic; color: var(--amber); }
 }
 .splash-inner { position: relative; z-index: 1; text-align: center; padding-inline: 1.5rem; }
 .splash-phoenix {
-  width: min(220px, 42vw);
+  width: min(420px, 78vw);
   margin-inline: auto;
-  filter: drop-shadow(0 0 26px rgba(232,93,24,.45));
+  filter: drop-shadow(0 0 34px rgba(232,93,24,.5));
   opacity: 0;
   animation:
-    splashRise .8s var(--ease-out) .05s forwards,
-    splashPulse 2s ease-in-out .85s infinite alternate;
+    splashRise .9s var(--ease-out) .05s forwards,
+    splashPulse 2.2s ease-in-out .95s infinite alternate;
 }
 @keyframes splashRise {
-  from { opacity: 0; transform: translateY(16px) scale(.88); }
+  from { opacity: 0; transform: translateY(16px) scale(.9); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 @keyframes splashPulse {
-  0%   { filter: drop-shadow(0 0 18px rgba(232,93,24,.35)); transform: scale(.98); }
-  100% { filter: drop-shadow(0 0 46px rgba(232,93,24,.75)); transform: scale(1.035); }
+  0%   { filter: drop-shadow(0 0 22px rgba(232,93,24,.4)); transform: scale(.985); }
+  100% { filter: drop-shadow(0 0 52px rgba(232,93,24,.8)); transform: scale(1.025); }
 }
-.splash-brand { margin-top: 1.1rem; }
+.splash-brand { margin-top: .6rem; }
 .splash-title {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(1.7rem, 6vw, 2.7rem);
-  letter-spacing: .16em;
-  color: var(--cream);
+  font-size: clamp(1.9rem, 6.4vw, 3.1rem);
+  letter-spacing: .05em;
+  line-height: .98;
+  color: var(--amber);
+  background: linear-gradient(120deg, var(--cream) 20%, var(--amber) 55%, var(--orange-fire) 80%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
   opacity: 0;
   transform: translateY(12px);
   animation: splashTextIn .7s var(--ease-out) forwards;
 }
-.splash-title:first-child { animation-delay: .32s; }
-.splash-title-2 { color: var(--amber); animation-delay: .5s; }
+.splash-title:first-child { animation-delay: .38s; }
+.splash-title-2 { animation-delay: .56s; }
 @keyframes splashTextIn {
   to { opacity: 1; transform: translateY(0); }
 }

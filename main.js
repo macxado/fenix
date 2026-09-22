@@ -22,9 +22,9 @@
       document.body.style.overflow = "";
       setTimeout(function () {
         if (splash.parentNode) splash.parentNode.removeChild(splash);
-      }, 750);
+      }, 1350);
     };
-    var minDelay = reduced ? 700 : 2100;
+    var minDelay = reduced ? 700 : 2300;
     setTimeout(hide, minDelay);
     setTimeout(hide, 4000);
   }
@@ -76,6 +76,28 @@
     });
   }
 
+  /* ---------------- Prefill "Massage souhaité" from card buttons ---------------- */
+  function initMassagePrefill() {
+    var select = $("#f-massage");
+    if (!select) return;
+    $$("[data-massage]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var wanted = btn.getAttribute("data-massage");
+        var matched = false;
+        $$("option", select).forEach(function (opt) {
+          if (opt.textContent.trim() === wanted) {
+            select.value = opt.value || opt.textContent;
+            matched = true;
+          }
+        });
+        if (matched) {
+          select.classList.add("is-prefilled");
+          setTimeout(function () { select.classList.remove("is-prefilled"); }, 1600);
+        }
+      });
+    });
+  }
+
   /* ---------------- Reveal on scroll ---------------- */
   function initReveals() {
     var els = $$("[data-reveal]");
@@ -107,7 +129,7 @@
   function initEmbers() {
     var host = $("[data-embers]");
     if (!host || reduced) return;
-    var COUNT = window.innerWidth < 720 ? 10 : 18;
+    var COUNT = window.innerWidth < 720 ? 13 : 23;
     for (var i = 0; i < COUNT; i++) {
       var e = document.createElement("span");
       e.className = "ember";
@@ -237,6 +259,7 @@
     safe(initCarousel, "initCarousel");
     safe(initLightbox, "initLightbox");
     safe(initContactForm, "initContactForm");
+    safe(initMassagePrefill, "initMassagePrefill");
     document.documentElement.classList.add("is-ready");
   }
 
