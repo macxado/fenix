@@ -9,6 +9,26 @@
     try { fn(); } catch (e) { console.warn("[" + name + "]", e); }
   }
 
+  /* ---------------- Splash / loading screen ---------------- */
+  function initSplash() {
+    var splash = $("[data-splash]");
+    if (!splash) return;
+    document.body.style.overflow = "hidden";
+    var done = false;
+    var hide = function () {
+      if (done) return;
+      done = true;
+      splash.classList.add("is-out");
+      document.body.style.overflow = "";
+      setTimeout(function () {
+        if (splash.parentNode) splash.parentNode.removeChild(splash);
+      }, 750);
+    };
+    var minDelay = reduced ? 700 : 2100;
+    setTimeout(hide, minDelay);
+    setTimeout(hide, 4000);
+  }
+
   /* ---------------- Nav scroll state + mobile menu ---------------- */
   function initNav() {
     var nav = $("[data-nav]");
@@ -209,6 +229,7 @@
 
   /* ---------------- Boot ---------------- */
   function boot() {
+    safe(initSplash, "initSplash");
     safe(initNav, "initNav");
     safe(initSmoothScroll, "initSmoothScroll");
     safe(initReveals, "initReveals");
