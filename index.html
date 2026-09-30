@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" />
 
 <link rel="preload" as="image" href="assets/img/phoenix-hero.webp" fetchpriority="high" />
-<link rel="stylesheet" href="styles.css?v=20260922r" />
+<link rel="stylesheet" href="styles.css?v=20260930h" />
 </head>
 <body>
 <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
@@ -199,7 +199,7 @@
   <div class="container">
     <div class="vip-grid">
       <figure class="vip-figure reveal" data-reveal>
-        <img src="assets/img/frigo-bar-rideaux-violet.webp" alt="Coin bar privé avec boissons et éclairage violet dans l'espace VIP du spa" loading="lazy" decoding="async" />
+        <img src="assets/img/jacuzzi-hydromassage-vip.webp" alt="Jacuzzi privé avec champagne, mignardises et bougies pour l'expérience VIP" loading="lazy" decoding="async" />
         <div class="vip-price-tag">
           <span class="amount">300&nbsp;€</span>
           <span class="label">1 heure — Hydromassage</span>
@@ -314,6 +314,26 @@
           <img src="assets/img/fauteuil-tele-coin.webp" alt="Coin détente avec fauteuil et éclairage d'ambiance" loading="lazy" decoding="async" />
         </div>
         <div class="carousel-slide"><img src="assets/img/salon-etageres-bougies.webp" alt="Salle de massage avec étagère de serviettes et bougies" loading="lazy" decoding="async" /></div>
+        <div class="carousel-slide is-duo">
+          <img src="assets/img/chaussons-bougies-nouvelles.webp" alt="Chaussons de bienvenue et serviettes près de bougies" loading="lazy" decoding="async" />
+          <img src="assets/img/petales-masseur-pistolet.webp" alt="Pétales de rose et appareil de massage sur la camille" loading="lazy" decoding="async" />
+        </div>
+        <div class="carousel-slide is-duo">
+          <img src="assets/img/salon-arbre-petales-roses.webp" alt="Salon romantique avec arbre décoratif et pétales de rose" loading="lazy" decoding="async" />
+          <img src="assets/img/canape-coussins-petales-vue.webp" alt="Canapé de massage avec coussins et pétales de rose sous ambiance violette" loading="lazy" decoding="async" />
+        </div>
+        <div class="carousel-slide is-duo">
+          <img src="assets/img/mannequin-deco-television.webp" alt="Décoration artistique et coin télévision du salon" loading="lazy" decoding="async" />
+          <img src="assets/img/aurore-violette-rose-mur.webp" alt="Ambiance lumineuse violette et rose sur le mur du salon" loading="lazy" decoding="async" />
+        </div>
+        <div class="carousel-slide is-duo">
+          <img src="assets/img/mur-roses-fenetre-bougies.webp" alt="Roses décoratives murales et bougies près de la fenêtre" loading="lazy" decoding="async" />
+          <img src="assets/img/arbre-plafond-led-coin.webp" alt="Arbre décoratif et éclairage LED d'ambiance dans un coin du salon" loading="lazy" decoding="async" />
+        </div>
+        <div class="carousel-slide is-duo">
+          <img src="assets/img/champagne-mumm-seau-glace.webp" alt="Champagne dans un seau à glace avec flûtes pour l'expérience VIP" loading="lazy" decoding="async" />
+          <img src="assets/img/coin-mannequin-petales-vue.webp" alt="Coin décoratif avec mannequin et pétales de rose sur la camille" loading="lazy" decoding="async" />
+        </div>
       </div>
       <button class="carousel-arrow prev" data-carousel-prev aria-label="Photo précédente">‹</button>
       <button class="carousel-arrow next" data-carousel-next aria-label="Photo suivante">›</button>
@@ -374,29 +394,34 @@
       <div class="contact-info reveal" data-reveal>
         <div>
           <p class="kicker">Téléphone</p>
-          <a class="contact-phone" href="tel:+33685519150">
-            <span class="phoenix-mark" aria-hidden="true" style="width:28px;height:28px;">
-              <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><path fill="#DFA52D" d="M24 4c6 8 14 10 14 20 0 8-6 14-14 14S10 32 10 24c0-3 1-5 2-7 1 4 4 6 4 6-2-6 1-12 8-19Z"/></svg>
-            </span>
-            06 85 51 91 50
-          </a>
+          <div class="contact-phones">
+            <a class="contact-phone" href="tel:+33685519150">06 85 51 91 50</a>
+            <a class="contact-phone" href="tel:+33671987852">06 71 98 78 52</a>
+          </div>
+        </div>
+        <div>
+          <p class="kicker">E-mail</p>
+          <a class="contact-phone contact-email" href="mailto:fenixjacuzzispa@gmail.com">fenixjacuzzispa@gmail.com</a>
         </div>
         <div class="contact-actions">
-          <a class="btn btn-primary" href="tel:+33685519150">Appeler</a>
           <a class="btn btn-gold" href="#formulaire-reservation">Réserver</a>
         </div>
         <p class="section-sub">Ouvert tous les jours sur rendez-vous. Réponse rapide par téléphone ou via le formulaire.</p>
       </div>
 
       <form class="reveal" data-reveal data-contact-form id="formulaire-reservation" aria-label="Formulaire de réservation">
+        <input type="hidden" name="access_key" value="c6865ea1-ecfc-4359-8547-415843adba7d" />
+        <input type="hidden" name="subject" value="Nouvelle demande de réservation — Fénix Jacuzzi Spa" />
+        <input type="hidden" name="from_name" value="Site Fénix Jacuzzi Spa" />
+        <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" />
         <div class="form-grid">
           <div class="form-field">
             <label for="f-prenom">Prénom</label>
-            <input id="f-prenom" name="prenom" type="text" required autocomplete="given-name" />
+            <input id="f-prenom" name="Prenom" type="text" required autocomplete="given-name" />
           </div>
           <div class="form-field">
             <label for="f-massage">Massage souhaité</label>
-            <select id="f-massage" name="massage" required>
+            <select id="f-massage" name="Massage souhaite" required>
               <option value="">Choisir une prestation</option>
               <option>Massage relaxant ou décontracturant</option>
               <option>Massage Nuru</option>
@@ -409,15 +434,65 @@
           </div>
           <div class="form-field">
             <label for="f-date">Date souhaitée</label>
-            <input id="f-date" name="date" type="date" required />
+            <input id="f-date" name="Date souhaitee" type="date" required />
           </div>
           <div class="form-field">
             <label for="f-heure">Heure souhaitée</label>
-            <input id="f-heure" name="heure" type="time" required />
+            <select id="f-heure" name="Heure souhaitee" required>
+              <option value="">Choisir une heure</option>
+              <option value="00:00">00:00</option>
+              <option value="00:30">00:30</option>
+              <option value="01:00">01:00</option>
+              <option value="01:30">01:30</option>
+              <option value="02:00">02:00</option>
+              <option value="02:30">02:30</option>
+              <option value="03:00">03:00</option>
+              <option value="03:30">03:30</option>
+              <option value="04:00">04:00</option>
+              <option value="04:30">04:30</option>
+              <option value="05:00">05:00</option>
+              <option value="05:30">05:30</option>
+              <option value="06:00">06:00</option>
+              <option value="06:30">06:30</option>
+              <option value="07:00">07:00</option>
+              <option value="07:30">07:30</option>
+              <option value="08:00">08:00</option>
+              <option value="08:30">08:30</option>
+              <option value="09:00">09:00</option>
+              <option value="09:30">09:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+              <option value="22:30">22:30</option>
+              <option value="23:00">23:00</option>
+              <option value="23:30">23:30</option>
+            </select>
           </div>
           <div class="form-field">
             <label for="f-tel">Téléphone</label>
-            <input id="f-tel" name="telephone" type="tel" required autocomplete="tel" />
+            <input id="f-tel" name="Telephone" type="tel" required autocomplete="tel" />
           </div>
           <div class="form-field full">
             <label for="f-message">Message</label>
@@ -427,6 +502,7 @@
         <button class="btn btn-primary btn-block" type="submit" style="margin-top:1.3rem;">Envoyer la demande</button>
         <p class="form-note">En envoyant ce formulaire, vous acceptez d'être recontacté(e) par Fénix Jacuzzi Spa pour confirmer votre rendez-vous.</p>
         <p class="form-success" data-form-success>✓ Merci, votre demande a bien été envoyée. Nous vous recontactons rapidement.</p>
+        <p class="form-error" data-form-error>✕ Une erreur est survenue lors de l'envoi. Merci de nous appeler directement au 06 85 51 91 50.</p>
       </form>
     </div>
   </div>
@@ -440,16 +516,16 @@
       <h2 class="section-title">Nous trouver</h2>
     </div>
     <div class="address-block reveal" data-reveal>
-      <strong>Adresse :</strong> [Insérer l'adresse exacte du spa]<br />
-      <strong>Téléphone :</strong> <a href="tel:+33685519150">06 85 51 91 50</a>
+      <strong>Adresse :</strong> Rue de Bellevue, Châteaubernard, 16100 Cognac<br />
+      <strong>Téléphone :</strong> <a href="tel:+33685519150">06 85 51 91 50</a> / <a href="tel:+33671987852">06 71 98 78 52</a>
     </div>
     <div class="map-frame reveal" data-reveal>
       <iframe
-        src="https://www.google.com/maps?q=France&z=5&output=embed"
+        src="https://www.google.com/maps?q=Rue+de+Bellevue,+Ch%C3%A2teaubernard,+16100+Cognac&output=embed"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
-        title="Carte de localisation — à mettre à jour avec l'adresse exacte du spa"
-        aria-label="Carte Google Maps provisoire, à remplacer une fois l'adresse exacte du spa communiquée"></iframe>
+        title="Carte de localisation — Rue de Bellevue, Châteaubernard, 16100 Cognac"
+        aria-label="Carte Google Maps indiquant l'adresse du spa, Rue de Bellevue, Châteaubernard, 16100 Cognac"></iframe>
     </div>
   </div>
 </section>
@@ -469,6 +545,7 @@
         </div>
         <p class="footer-tagline">Massage • Bien-être • Relaxation</p>
         <p class="footer-phone">06 85 51 91 50</p>
+        <p class="footer-phone">06 71 98 78 52</p>
       </div>
       <div>
         <p class="footer-heading">Navigation</p>
@@ -487,6 +564,8 @@
         <p class="footer-heading">Informations</p>
         <div class="footer-links">
           <a href="tel:+33685519150">06 85 51 91 50</a>
+          <a href="tel:+33671987852">06 71 98 78 52</a>
+          <a href="mailto:fenixjacuzzispa@gmail.com">fenixjacuzzispa@gmail.com</a>
           <a href="#nous-trouver">Nous trouver</a>
         </div>
       </div>
@@ -508,6 +587,6 @@
 <script defer src="lib/gsap.min.js"></script>
 <script defer src="lib/ScrollTrigger.min.js"></script>
 <script defer src="lib/manifest.js"></script>
-<script defer src="main.js?v=20260922r"></script>
+<script defer src="main.js?v=20260930h"></script>
 </body>
 </html>

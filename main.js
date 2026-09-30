@@ -76,6 +76,18 @@
     });
   }
 
+  /* ---------------- Date/time pickers open on click anywhere in the field ---------------- */
+  function initDateTimePickers() {
+    var fields = $$('input[type="date"], input[type="time"]');
+    fields.forEach(function (el) {
+      el.addEventListener("click", function () {
+        if (typeof el.showPicker === "function") {
+          try { el.showPicker(); } catch (e) {}
+        }
+      });
+    });
+  }
+
   /* ---------------- Back to top ---------------- */
   function initBackToTop() {
     var btn = $("[data-back-to-top]");
@@ -255,12 +267,38 @@
   function initContactForm() {
     var form = $("[data-contact-form]");
     if (!form) return;
+    var success = $("[data-form-success]");
+    var error = $("[data-form-error]");
+    var submitBtn = $('button[type="submit"]', form);
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
-      var success = $("[data-form-success]");
-      if (success) success.classList.add("is-visible");
-      form.reset();
+      if (error) error.classList.remove("is-visible");
+      if (success) success.classList.remove("is-visible");
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Envoi en cours..."; }
+
+      var data = new FormData(form);
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: data
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (json) {
+          if (json.success) {
+            if (success) success.classList.add("is-visible");
+            form.reset();
+          } else {
+            if (error) error.classList.add("is-visible");
+          }
+        })
+        .catch(function () {
+          if (error) error.classList.add("is-visible");
+        })
+        .finally(function () {
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Envoyer la demande"; }
+        });
     });
   }
 
@@ -276,6 +314,7 @@
     safe(initContactForm, "initContactForm");
     safe(initMassagePrefill, "initMassagePrefill");
     safe(initBackToTop, "initBackToTop");
+    safe(initDateTimePickers, "initDateTimePickers");
     document.documentElement.classList.add("is-ready");
   }
 
