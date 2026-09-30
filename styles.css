@@ -509,7 +509,7 @@ em { font-style: italic; color: var(--amber); }
 @media (min-width: 960px) { .contact-grid { grid-template-columns: .85fr 1.15fr; } }
 .contact-info { display: flex; flex-direction: column; gap: 1.6rem; }
 .kicker-hint { text-transform: none; letter-spacing: 0; color: var(--text-mute); font-weight: 400; font-size: .72rem; }
-.contact-phones { display: flex; flex-direction: column; gap: .5rem; }
+.contact-phones { display: flex; flex-direction: column; gap: .5rem; margin-top: .8rem; }
 .phone-row { display: flex; align-items: center; gap: .9rem; }
 .contact-phone {
   display: block;
