@@ -734,8 +734,8 @@ em { font-style: italic; color: var(--amber); }
   grid-template-columns: 1fr;
 }
 @media (min-width: 960px) { .welcome-grid { grid-template-columns: 1fr 1fr; } }
-.welcome-figure { position: relative; border-radius: 4px; overflow: hidden; aspect-ratio: 4/5; border: 1px solid var(--line); }
-.welcome-figure img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
+.welcome-figure { position: relative; border-radius: 4px; overflow: hidden; aspect-ratio: 1/1; border: 1px solid var(--line); }
+.welcome-figure img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; transition: transform 1.2s var(--ease-out); }
 .welcome-figure:hover img { transform: scale(1.05); }
 .welcome-mark { width: 46px; height: 46px; margin-bottom: 1.4rem; color: var(--amber); }
 .welcome-text p { color: var(--text-soft); margin-top: 1.2rem; font-size: 1.02rem; max-width: 46ch; }
